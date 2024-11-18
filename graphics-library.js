@@ -33,6 +33,30 @@ function draw() {
   ctx.fillStyle = "rgb(21, 20, 26)";
   ctx.fillRect(0, 0, cnv.width, cnv.height);
 
+   ctx.fillStyle = "rgb(169, 174, 201)"
+  ctx.fillRect(0, 450, cnv.width, cnv.height)
+  triangle(370, 160, 420, 350, 320, 350, "fill")
+
+  ctx.fillStyle = "rgb(74, 63, 13)"
+  ctx.fillRect(0 , 340, 410, 150)
+
+  ctx.fillStyle = "rgb(169, 174, 201)"
+  ctx.fillRect(0 , 160, 370, 190)
+  
+  ctx.fillStyle = "rgb(74, 63, 13)"
+  triangle(360, 170, 410, 340, 300, 350, "fill")
+  ctx.fillRect(310, 340, 70, 10)
+
+  ctx.fillStyle = "rgb(77, 17, 46)"
+  ctx.fillRect(340, 390, 40, 100)
+
+  ctx.fillStyle = "rgb(56, 54, 9)"
+  ctx.fillRect(0 , 350, 300, 60)
+
+  //Snowman
+  ctx.fillStyle = "rgb(28, 13, 74)";
+  circle()
+
   //Draw Snowflakes
   for (let i = 0; i < snowflakesArray.length; i++) {
     ctx.fillStyle = "white";
