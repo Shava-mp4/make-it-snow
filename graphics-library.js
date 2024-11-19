@@ -30,41 +30,88 @@ requestAnimationFrame(draw);
 
 function draw() {
   // Clears previous frame
-  ctx.fillStyle = "rgb(21, 20, 26)";
+  ctx.fillStyle = "rgb(24, 19, 46)";
   ctx.fillRect(0, 0, cnv.width, cnv.height);
 
-   ctx.fillStyle = "rgb(169, 174, 201)"
-  ctx.fillRect(0, 450, cnv.width, cnv.height)
-  triangle(370, 160, 420, 350, 320, 350, "fill")
+  ctx.fillStyle = "rgb(169, 174, 201)";
+  ctx.fillRect(0, 450, cnv.width, cnv.height);
+  triangle(370, 160, 420, 350, 320, 350, "fill");
 
-  ctx.fillStyle = "rgb(74, 63, 13)"
-  ctx.fillRect(0 , 340, 410, 150)
+  //Main house part
+  ctx.fillStyle = "rgb(71, 30, 0)";
+  ctx.fillRect(0, 340, 410, 150);
 
-  ctx.fillStyle = "rgb(169, 174, 201)"
-  ctx.fillRect(0 , 160, 370, 190)
-  
-  ctx.fillStyle = "rgb(74, 63, 13)"
-  triangle(360, 170, 410, 340, 300, 350, "fill")
-  ctx.fillRect(310, 340, 70, 10)
+  //Shadow
+  ctx.fillStyle = "rgb(43, 19, 2)";
+  ctx.fillRect(0, 340, 310, 70);
 
-  ctx.fillStyle = "rgb(77, 17, 46)"
-  ctx.fillRect(340, 390, 40, 100)
+  ctx.fillStyle = "rgb(169, 174, 201)";
+  ctx.fillRect(0, 160, 370, 190);
 
-  ctx.fillStyle = "rgb(56, 54, 9)"
-  ctx.fillRect(0 , 350, 300, 60)
+  //House triangle
+  ctx.fillStyle = "rgb(71, 30, 0)";
+  triangle(360, 170, 410, 340, 300, 350, "fill");
+  ctx.fillRect(310, 340, 70, 10);
+
+  //Door
+  ctx.fillStyle = "rgb(64, 14, 27)";
+  ctx.fillRect(340, 390, 40, 100);
+
+  //Shadow
+  ctx.fillStyle = "rgb(43, 19, 2)";
+  ctx.fillRect(300, 340, 10, 70);
+
+  //Triangle to fix roof
+  ctx.fillStyle = "rgb(169, 174, 201)";
+  triangle(360, 160, 300, 350, 230, 160, "fill");
 
   //Snowman
-  ctx.fillStyle = "rgb(28, 13, 74)";
-  circle()
+  ctx.fillStyle = "rgb(230, 231, 240)";
+  circle(810, 510, 50, "fill");
+  lineWidth(5);
+  line(780, 420, 760, 480); // left arm
+  circle(810, 440, 43, "fill");
+  circle(810, 380, 36, "fill");
+  ctx.fillStyle = "rgb(28, 27, 31)";
+  circle(815, 375, 3, "fill"); // l eye
+  circle(785, 377, 3, "fill"); // r eye
+  circle(798, 417, 3, "fill"); //buttons
+  circle(794, 437, 3, "fill");
+  circle(797, 455, 3, "fill");
+  ctx.fillStyle = "rgb(214, 136, 2)";
+  triangle(800, 383, 758, 385, 800, 388, "fill"); // Nose
+  lineWidth(5);
+  line(840, 420, 860, 480); // left arm
+
+  //Window Light
+  ctx.fillStyle = "rgb(237, 180, 57, 0.2)";
+  ctx.fillRect(70, 375, 160, 80);
+  circle(360, 290, 25, "fill");
+  ctx.fillStyle = "rgb(237, 180, 57, 0.2)";
+  ctx.fillRect(60, 365, 180, 100);
+  circle(360, 290, 30, "fill");
+
+  //Windows
+  ctx.fillStyle = "rgb(237, 172, 31)";
+  ctx.fillRect(80, 385, 140, 60);
+
+  circle(360, 290, 20, "fill");
+
+  lineWidth(2);
+  line(80, 415, 220, 415);
+  line(150, 385, 150, 445);
+
+  line(340, 290, 380, 290);
+  line(363, 270, 363, 310);
 
   //Draw Snowflakes
   for (let i = 0; i < snowflakesArray.length; i++) {
     ctx.fillStyle = "white";
     ctx.beginPath();
     ctx.arc(
-      snowflakesArray.x,
-      snowflakesArray.y,
-      snowflakesArray.r,
+      snowflakesArray[i].x,
+      snowflakesArray[i].y,
+      snowflakesArray[i].r,
       0,
       2 * Math.PI
     );
@@ -73,14 +120,22 @@ function draw() {
 
   //Animate Snow
   for (let i = 0; i < snowflakesArray.length; i++) {
-    snowflakesArray[i].x += snowflakesArray[i].dx;
+    snowflakesArray[i].y += snowflakesArray[i].dy * snowflakesArray[i].speed;
+    snowflakesArray[i].x += snowflakesArray[i].dx * snowflakesArray[i].speed;
 
-    if (snowflakesArray[i].x > cnv.width) {
+    if (snowflakesArray[i].y > cnv.height) {
       // Move to right of canvas
-      snowflakesArray[i].x = -snowflakesArray[i].length;
+      snowflakesArray[i].y = -snowflakesArray[i].r;
 
       // randomize x
-      snowflakesArray[i].y = Math.random() * cnv.width;
+      snowflakesArray[i].x = Math.random() * cnv.width;
+    }
+
+    if (snowflakesArray[i].x > snowflakesArray[i].x + 3) {
+      snowflakesArray[i].dx = snowflakesArray[i].dx * -1;
+    }
+    if (snowflakesArray[i].x < snowflakesArray[i].x - 6) {
+      snowflakesArray[i].dx = snowflakesArray[i].dx * -1;
     }
   }
   requestAnimationFrame(draw);
