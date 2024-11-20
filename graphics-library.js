@@ -29,7 +29,7 @@ cnv.height = 600;
 requestAnimationFrame(draw);
 
 function draw() {
-  // Clears previous frame
+   // Clears previous frame
   ctx.fillStyle = "rgb(24, 19, 46)";
   ctx.fillRect(0, 0, cnv.width, cnv.height);
 
@@ -68,20 +68,23 @@ function draw() {
   //Snowman
   ctx.fillStyle = "rgb(230, 231, 240)";
   circle(810, 510, 50, "fill");
-  lineWidth(5);
-  line(780, 420, 760, 480); // left arm
-  circle(810, 440, 43, "fill");
+  ctx.strokeStyle = "rgb(125, 54, 2)";
+  // lineWidth(5);
+  // line(780, 420, 760, 480); // left arm
+  // circle(810, 440, 43, "fill");
   circle(810, 380, 36, "fill");
   ctx.fillStyle = "rgb(28, 27, 31)";
   circle(815, 375, 3, "fill"); // l eye
   circle(785, 377, 3, "fill"); // r eye
-  circle(798, 417, 3, "fill"); //buttons
-  circle(794, 437, 3, "fill");
-  circle(797, 455, 3, "fill");
+  // circle(798, 417, 3, "fill"); //buttons
+  // circle(794, 437, 3, "fill");
+  // circle(797, 455, 3, "fill");
   ctx.fillStyle = "rgb(214, 136, 2)";
   triangle(800, 383, 758, 385, 800, 388, "fill"); // Nose
-  lineWidth(5);
-  line(840, 420, 860, 480); // left arm
+  // lineWidth(5);
+  // line(840, 420, 870, 430); // left arm
+  // line(868, 430, 875, 390);
+  snowmanArray[0];
 
   //Window Light
   ctx.fillStyle = "rgb(237, 180, 57, 0.2)";
@@ -120,15 +123,15 @@ function draw() {
 
   //Animate Snow
   for (let i = 0; i < snowflakesArray.length; i++) {
-    snowflakesArray[i].y += snowflakesArray[i].dy * snowflakesArray[i].speed;
-    snowflakesArray[i].x += snowflakesArray[i].dx * snowflakesArray[i].speed;
+    snowflakesArray[i].y += snowflakesArray[i].dy;
+    snowflakesArray[i].x += snowflakesArray[i].dx;
 
     if (snowflakesArray[i].y > cnv.height) {
       // Move to right of canvas
       snowflakesArray[i].y = -snowflakesArray[i].r;
 
       // randomize x
-      snowflakesArray[i].x = Math.random() * cnv.width;
+      snowflakesArray[i].x = Math.random() * 1000 - 100;
     }
 
     if (snowflakesArray[i].x > snowflakesArray[i].x + 3) {
@@ -138,6 +141,7 @@ function draw() {
       snowflakesArray[i].dx = snowflakesArray[i].dx * -1;
     }
   }
+
   requestAnimationFrame(draw);
 }
 
