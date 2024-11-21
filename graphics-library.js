@@ -23,13 +23,19 @@ var ctx = cnv.getContext("2d");
 cnv.width = 900;
 cnv.height = 600;
 
+let light1 = 20;
+let light2 = 25;
+let light3 = 30;
+
+let speed = 0.1;
+
 // Type your examples from the notes below this line.
 
 // Animation Example
 requestAnimationFrame(draw);
 
 function draw() {
-   // Clears previous frame
+  // Clears previous frame
   ctx.fillStyle = "rgb(24, 19, 46)";
   ctx.fillRect(0, 0, cnv.width, cnv.height);
 
@@ -107,7 +113,6 @@ function draw() {
   line(340, 290, 380, 290);
   line(363, 270, 363, 310);
 
-   
   //Lamp post
   ctx.strokeStyle = "rgb(84, 88, 97)";
   lineWidth(7);
@@ -122,10 +127,6 @@ function draw() {
   ctx.fillStyle = "rgb(84, 88, 97)";
   triangle(718, 195, 682, 195, 700, 185, "fill");
 
-  let light1 = 20;
-  let light2 = 25;
-  let light3 = 30;
-
   //Lamp post light
   ctx.fillStyle = "rgb(237, 180, 57, 0.6)";
   circle(700, 218, light1, "fill");
@@ -134,21 +135,19 @@ function draw() {
   ctx.fillStyle = "rgb(237, 180, 57, 0.3)";
   circle(700, 218, light3, "fill");
 
-  light1++;
-  light2++;
-  light3++;
+  light1 = light1 + speed;
+  light2 = light2 + speed;
+  light3 = light3 + speed;
 
-  if (light1 > 25) {
-    light1--;
-    light2--;
-    light3--;
+  if (light1 >= 25) {
+    speed = -0.1;
   }
 
-  if (light1 < 20) {
-    light1++;
-    light2++;
-    light3++;
+  if (light1 <= 20) {
+    speed = 0.1;
   }
+
+  console.log(light1);
 
   //Draw Snowflakes
   for (let i = 0; i < snowflakesArray.length; i++) {
