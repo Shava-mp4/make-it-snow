@@ -69,22 +69,22 @@ function draw() {
   ctx.fillStyle = "rgb(230, 231, 240)";
   circle(810, 510, 50, "fill");
   ctx.strokeStyle = "rgb(125, 54, 2)";
-  // lineWidth(5);
-  // line(780, 420, 760, 480); // left arm
-  // circle(810, 440, 43, "fill");
+  lineWidth(5);
+  line(780, 420, 760, 480); // left arm
+  circle(810, 440, 43, "fill");
   circle(810, 380, 36, "fill");
   ctx.fillStyle = "rgb(28, 27, 31)";
   circle(815, 375, 3, "fill"); // l eye
   circle(785, 377, 3, "fill"); // r eye
-  // circle(798, 417, 3, "fill"); //buttons
-  // circle(794, 437, 3, "fill");
-  // circle(797, 455, 3, "fill");
+  circle(798, 417, 3, "fill"); //buttons
+  circle(794, 437, 3, "fill");
+  circle(797, 455, 3, "fill");
   ctx.fillStyle = "rgb(214, 136, 2)";
   triangle(800, 383, 758, 385, 800, 388, "fill"); // Nose
-  // lineWidth(5);
-  // line(840, 420, 870, 430); // left arm
-  // line(868, 430, 875, 390);
-  snowmanArray[0];
+  lineWidth(5);
+  line(840, 420, 870, 430); // left arm
+  line(868, 430, 875, 390);
+  // snowmanArray[0];
 
   //Window Light
   ctx.fillStyle = "rgb(237, 180, 57, 0.2)";
@@ -106,6 +106,49 @@ function draw() {
 
   line(340, 290, 380, 290);
   line(363, 270, 363, 310);
+
+   
+  //Lamp post
+  ctx.strokeStyle = "rgb(84, 88, 97)";
+  lineWidth(7);
+  line(700, 500, 700, 240);
+  lineWidth(5);
+  line(710, 240, 690, 240);
+  line(718, 195, 682, 195);
+  lineWidth(3);
+  line(710, 242, 715, 195);
+  line(690, 242, 685, 195);
+  line(700, 195, 700, 240);
+  ctx.fillStyle = "rgb(84, 88, 97)";
+  triangle(718, 195, 682, 195, 700, 185, "fill");
+
+  let light1 = 20;
+  let light2 = 25;
+  let light3 = 30;
+
+  //Lamp post light
+  ctx.fillStyle = "rgb(237, 180, 57, 0.6)";
+  circle(700, 218, light1, "fill");
+  ctx.fillStyle = "rgb(237, 180, 57, 0.3)";
+  circle(700, 218, light2, "fill");
+  ctx.fillStyle = "rgb(237, 180, 57, 0.3)";
+  circle(700, 218, light3, "fill");
+
+  light1++;
+  light2++;
+  light3++;
+
+  if (light1 > 25) {
+    light1--;
+    light2--;
+    light3--;
+  }
+
+  if (light1 < 20) {
+    light1++;
+    light2++;
+    light3++;
+  }
 
   //Draw Snowflakes
   for (let i = 0; i < snowflakesArray.length; i++) {
