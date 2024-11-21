@@ -2,47 +2,7 @@
 
 //Snowflakes
 let snowflakesArray = [];
-let snowmanArray = [
-  //Default
-  {
-    armWidth: lineWidth(5),
-    rightArm: line(780, 420, 760, 480),
-    colourOne: (ctx.fillStyle = "rgb(230, 231, 240)"),
-    torso: circle(810, 440, 43, "fill"),
-    colourTwo: (ctx.fillStyle = "rgb(28, 27, 31)"),
-    buttonOne: circle(798, 417, 3, "fill"),
-    buttonTwo: circle(794, 437, 3, "fill"),
-    buttonThree: circle(797, 455, 3, "fill"),
-    leftArm: line(840, 420, 860, 480),
-  },
-
-  //pose1
-  {
-    armWidth: lineWidth(5),
-    rightArm: line(780, 420, 760, 360),
-    colourOne: (ctx.fillStyle = "rgb(230, 231, 240)"),
-    torso: circle(810, 440, 43, "fill"),
-    colourTwo: (ctx.fillStyle = "rgb(28, 27, 31)"),
-    buttonOne: circle(798, 417, 3, "fill"),
-    buttonTwo: circle(794, 437, 3, "fill"),
-    buttonThree: circle(797, 455, 3, "fill"),
-    leftArm: line(840, 420, 860, 360),
-  },
-
-  //pose2
-  {
-    armWidth: lineWidth(5),
-    rightArm: line(780, 420, 760, 360),
-    colourOne: (ctx.fillStyle = "rgb(230, 231, 240)"),
-    torso: circle(810, 440, 43, "fill"),
-    colourTwo: (ctx.fillStyle = "rgb(28, 27, 31)"),
-    buttonOne: circle(798, 417, 3, "fill"),
-    buttonTwo: circle(794, 437, 3, "fill"),
-    buttonThree: circle(797, 455, 3, "fill"),
-    leftArm1: line(840, 420, 870, 430),
-    leftArm2: line(868, 430, 875, 390),
-  },
-];
+// 
 
 for (let i = 0; i < 250; i++) {
   snowflakesArray.push({
@@ -107,3 +67,44 @@ function keydownHandler(event) {
   }
 }
 
+let snowmanArray = [
+//   //Default
+//   {
+//     armWidth: lineWidth(5),
+//     rightArm: line(780, 420, 760, 480),
+//     colourOne: (ctx.fillStyle = "rgb(230, 231, 240)"),
+//     torso: circle(810, 440, 43, "fill"),
+//     colourTwo: (ctx.fillStyle = "rgb(28, 27, 31)"),
+//     buttonOne: circle(798, 417, 3, "fill"),
+//     buttonTwo: circle(794, 437, 3, "fill"),
+//     buttonThree: circle(797, 455, 3, "fill"),
+//     leftArm: line(840, 420, 860, 480),
+//   },
+
+//   //pose1
+//   {
+//     armWidth: lineWidth(5),
+//     rightArm: line(780, 420, 760, 360),
+//     colourOne: (ctx.fillStyle = "rgb(230, 231, 240)"),
+//     torso: circle(810, 440, 43, "fill"),
+//     colourTwo: (ctx.fillStyle = "rgb(28, 27, 31)"),
+//     buttonOne: circle(798, 417, 3, "fill"),
+//     buttonTwo: circle(794, 437, 3, "fill"),
+//     buttonThree: circle(797, 455, 3, "fill"),
+//     leftArm: line(840, 420, 860, 360),
+//   },
+
+//   //pose2
+//   {
+//     armWidth: lineWidth(5),
+//     rightArm: line(780, 420, 760, 360),
+//     colourOne: (ctx.fillStyle = "rgb(230, 231, 240)"),
+//     torso: circle(810, 440, 43, "fill"),
+//     colourTwo: (ctx.fillStyle = "rgb(28, 27, 31)"),
+//     buttonOne: circle(798, 417, 3, "fill"),
+//     buttonTwo: circle(794, 437, 3, "fill"),
+//     buttonThree: circle(797, 455, 3, "fill"),
+//     leftArm1: line(840, 420, 870, 430),
+//     leftArm2: line(868, 430, 875, 390),
+//   },
+// ];
