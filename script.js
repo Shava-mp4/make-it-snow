@@ -57,17 +57,17 @@ function keydownHandler(event) {
     }
   }
 
-  if (event.code == "KeyP") {
-    let pose = 0;
-    pose++;
-    snowmanArray[pose];
-    if (pose == snowmanArray.length) {
-      pose = 0;
-    }
-  }
-}
+//   if (event.code == "KeyP") {
+//     let pose = 0;
+//     pose++;
+//     snowmanArray[pose];
+//     if (pose == snowmanArray.length) {
+//       pose = 0;
+//     }
+//   }
+// }
 
-let snowmanArray = [
+// let snowmanArray = [
 //   //Default
 //   {
 //     armWidth: lineWidth(5),
