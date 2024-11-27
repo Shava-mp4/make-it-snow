@@ -168,12 +168,20 @@ function draw() {
     snowflakesArray[i].y += snowflakesArray[i].dy;
     snowflakesArray[i].x += snowflakesArray[i].dx;
 
+    //make snowflakes sway
+    if (snowflakesArray[i].x > snowflakesSway[i].initialX + 20) {
+      snowflakesArray[i].dx = -snowflakes[i].dx;
+    } else if (snowflakesArray[i].x < snowflakesSway[i].initialX - 20) {
+      snowflakesArray[i].dx = -snowflakes[i].dx;
+    }
+
     if (snowflakesArray[i].y > cnv.height) {
       // Move to right of canvas
-      snowflakesArray[i].y = -snowflakesArray[i].r;
+      // snowflakesArray[i].y = -snowflakesArray[i].r;
 
       // randomize x
-      snowflakesArray[i].x = Math.random() * 1000 - 100;
+      snowflakesArray[i].x = Math.random() * cnv.width;
+      snowflakesSway[i].initialX = snowflakesArray[i].x;
     }
 
     if (snowflakesArray[i].x > snowflakesArray[i].x + 3) {
