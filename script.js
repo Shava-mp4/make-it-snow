@@ -14,7 +14,7 @@ for (let i = 0; i < 250; i++) {
   });
 }
 
-let snowflakeSway = []
+let snowflakesSway = []
 
 for (let i = 0; i < snowflakesArray; i++) {
   snowflakesSway.push({
