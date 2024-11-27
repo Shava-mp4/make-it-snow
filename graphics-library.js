@@ -170,9 +170,9 @@ function draw() {
 
     //make snowflakes sway
     if (snowflakesArray[i].x > snowflakesSway[i].initialX + 20) {
-      snowflakesArray[i].dx = -snowflakes[i].dx;
+      snowflakesArray[i].dx = -snowflakesArray[i].dx;
     } else if (snowflakesArray[i].x < snowflakesSway[i].initialX - 20) {
-      snowflakesArray[i].dx = -snowflakes[i].dx;
+      snowflakesArray[i].dx = -snowflakesArray[i].dx;
     }
 
     if (snowflakesArray[i].y > cnv.height) {
