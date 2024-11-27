@@ -17,9 +17,10 @@ for (let i = 0; i < 250; i++) {
 let snowflakeSway = []
 
 for (let i = 0; i < snowflakesArray; i++) {
-  snowglakesSway.push({
+  snowflakesSway.push({
     initialX: snowflakesArray[i].x
   })
+}
 
 // // Key events
 document.addEventListener("keydown", keydownHandler);
