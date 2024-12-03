@@ -1,26 +1,5 @@
 //Mini Project: Make it Snow
 
-//Snowflakes
-let snowflakesArray = [];
-// 
-
-for (let i = 0; i < 250; i++) {
-  snowflakesArray.push({
-    x: Math.random() * 1000 - 100,
-    y: 0,
-    r: Math.random() * 2 + 1,
-    dx: Math.random() * (1.2 - 0.2) + 0.2, // 2.01 - 5.99
-    dy: Math.random() * (2 - 0.5) + 0.5,
-  });
-}
-
-let snowflakesSway = []
-
-for (let i = 0; i < snowflakesArray; i++) {
-  snowflakesSway.push({
-    initialX: snowflakesArray[i].x
-  })
-}
 
 // // Key events
 document.addEventListener("keydown", keydownHandler);
@@ -35,9 +14,15 @@ function keydownHandler(event) {
         x: Math.random() * cnv.width,
         y: 0,
         r: Math.random() * 2 + 1,
-        dx: Math.random() * (1.2 - 0.2) + 0.2, // 2.01 - 5.99
+        dx: Math.random() * (1.2 + 0.2) - 0.2, // 2.01 - 5.99
         dy: Math.random() * (2 - 0.5) + 0.5,
       });
+    }
+
+    for (let i = 250; i < 260; i++) {
+      snowflakesSway.push({
+        initialX: snowflakesArray[i].x
+      })
     }
   }
 
@@ -49,19 +34,22 @@ function keydownHandler(event) {
 
   if (event.code == "ArrowUp") {
     for (let i = 0; i < snowflakesArray.length; i++) {
-      if (snowflakesArray[i].dx < 10) {
-        snowflakesArray[i].dx + 0.5;
+      if (snowflakesArray[i].dy < 8) {
+        snowflakesArray[i].dy += 0.5;
       }
     }
   }
 
   if (event.code == "ArrowDown") {
     for (let i = 0; i < snowflakesArray.length; i++) {
-      if (snowflakesArray[i].dx > 0.2) {
-        snowflakesArray[i].dx - 0.2;
+      if (snowflakesArray[i].dy > 0.2) {
+        snowflakesArray[i].dy -= 0.2;
       }
     }
   }
+}
+
+//21, 20, 26
 
 //   if (event.code == "KeyP") {
 //     let pose = 0;
