@@ -1,22 +1,5 @@
 // GRAPHICS LIBRARY
 
-// FUNCTION LIST
-// canvasSize(width, height)
-// background(color)
-// stroke(color)
-// fill(color)
-// lineWidth(width)
-// font(fontSetting)
-// rect(x, y, w, h, mode)
-// line(x1, y1, x2, y2)
-// circle(x, y, r, mode)
-// triangle(x1, y1, x2, y2, x3, y3, mode)
-// polygon(points, mode)
-// text(message, x, y, mode)
-// ellipse(x, y, xRadius, yRadius, rotation, mode)
-// image(img, x, y, w, h)
-// imageClip(img, xc, yc, wc, hc, x, y, w, h)
-
 // Canvas Setup
 var cnv = document.getElementById("myCanvas");
 var ctx = cnv.getContext("2d");
@@ -28,6 +11,31 @@ let light2 = 25;
 let light3 = 30;
 
 let speed = 0.1;
+
+//Snowflakes
+let snowflakesArray = [];
+let snowflakesSway = []
+// 
+
+for (let i = 0; i < 250; i++) {
+  snowflakesArray.push({
+    x: Math.random() * cnv.width,
+    y: 0,
+    r: Math.random() * 2 + 1,
+    dx: Math.random() * (0.5 + 0.3) - 0.3, // 2.01 - 5.99
+    dy: Math.random() * (1 - 0.5) + 0.5,
+  });
+}
+
+for (let i = 0; i < snowflakesArray; i++) {
+  snowflakesSway.push({
+    initialX: snowflakesArray[i].x
+  })
+  
+}
+console.log(snowflakesSway)
+
+
 
 // Type your examples from the notes below this line.
 
@@ -177,19 +185,19 @@ function draw() {
 
     if (snowflakesArray[i].y > cnv.height) {
       // Move to right of canvas
-      // snowflakesArray[i].y = -snowflakesArray[i].r;
+      snowflakesArray[i].y = -snowflakesArray[i].r;
 
       // randomize x
       snowflakesArray[i].x = Math.random() * cnv.width;
       snowflakesSway[i].initialX = snowflakesArray[i].x;
     }
 
-    if (snowflakesArray[i].x > snowflakesArray[i].x + 3) {
-      snowflakesArray[i].dx = snowflakesArray[i].dx * -1;
-    }
-    if (snowflakesArray[i].x < snowflakesArray[i].x - 6) {
-      snowflakesArray[i].dx = snowflakesArray[i].dx * -1;
-    }
+    // if (snowflakesArray[i].x > snowflakesArray[i].x + 3) {
+    //   snowflakesArray[i].dx = snowflakesArray[i].dx * -1;
+    // }
+    // if (snowflakesArray[i].x < snowflakesArray[i].x - 6) {
+    //   snowflakesArray[i].dx = snowflakesArray[i].dx * -1;
+    // }
   }
 
   requestAnimationFrame(draw);
